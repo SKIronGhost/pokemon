@@ -7,12 +7,21 @@
     <title>Pokémon</title>
   </head>
   <body>
+    <div class="poke-imgs"></div>
     <!-- <img src="http://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/shiny/1.png" alt="pokemon"> -->
     <script>
+      // $.get("https://pokeapi.co/api/v2/pokemon/1/", function(res) {
+      //               console.log(res.sprites.front_default);
+      //           }, "json");
       for(i=1;i<=151;i++){
-        console.log(i)
-        $("body").append("<img src='http://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/shiny/"+i+".png'/>")
-      }
+        $.get("https://pokeapi.co/api/v2/pokemon/"+i+"/", function (res){
+          
+          $(".poke-imgs").append("<img src="+res.sprites.front_default+">")
+        },"json")}
+
+      //   for(i=1;i<=151;i++){
+      //   $("body").append("<img src='http://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/shiny/"+i+".png'/>")
+      // }
     </script>
   </body>
 </html>
